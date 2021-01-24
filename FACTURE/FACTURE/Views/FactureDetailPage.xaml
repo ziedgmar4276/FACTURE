@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FACTURE.Views.FactureDetailPage">
+    <StackLayout Orientation="Vertical">
+        <Label TextColor="#2979ff" FontSize = "20" HorizontalTextAlignment="Center" Text=" Gestion Facture" />
+        <StackLayout Orientation="Horizontal">
+            <Picker Title="Nom Founisseur" FontSize="Large" TitleColor="Gray">
+           
+            <Picker.Items>
+              
+                <x:String>aziza</x:String>
+                <x:String>arabia informatique</x:String>
+                <x:String>myteck</x:String>
+                <x:String>tunisianet</x:String>
+               
+            </Picker.Items>
+        </Picker>
+            <Button Text="ADD"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Picker Title="Type Payment" FontSize="Large" TitleColor="Gray">
+                <Picker.Items>
+                    <x:String>chaque </x:String>
+                    <x:String>Cash</x:String>
+                </Picker.Items>
+        </Picker>
+        <Button Text="ADD"/>
+       </StackLayout>
+
+    <TableView Intent="Form" Margin="16,0">
+        
+        <TableRoot>
+            
+            <TableSection >
+                <EntryCell Label="Montant Facteur " Text="{Binding Path=facture.Montant_Facture}" />
+            </TableSection>
+                
+            <TableSection >
+                <EntryCell Label="Type payement" Text="{Binding Path=facture.type_paiement}" />
+            </TableSection>
+            <TableSection>
+                <ViewCell>
+                    <Button Text="Save" Command="{Binding SaveCommand}" />
+                </ViewCell>
+            </TableSection>
+
+        </TableRoot>
+    </TableView>
+      
+    </StackLayout>
+</ContentPage>

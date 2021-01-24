@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FACTURE.Views.ListeFacturesPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddFactureCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ListView ItemsSource="{Binding ListeFactures}" SelectedItem="{Binding SelectedFacture, Mode=TwoWay}" HasUnevenRows="True" SeparatorColor="LightSeaGreen" ItemSelected="OnFactureSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Montant_Facture}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="Large" />
+                      <!--  <Label Text="{Binding Prix}"  VerticalTextAlignment="Center"  HorizontalOptions="EndAndExpand" TextColor="#587Fdf" FontSize="Large" /> -->
+                    </StackLayout>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Delete" IsDestructive="true" Command="{Binding Source={x:Reference ListeFaturesPage}, Path=ViewModel.DeleteFactureCommand}" CommandParameter="{Binding .}" />
+                    </ViewCell.ContextActions>
+                </ViewCell>
+
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
